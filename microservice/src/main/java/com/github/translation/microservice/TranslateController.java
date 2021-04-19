@@ -4,7 +4,6 @@ import com.github.translation.language.Language;
 import com.github.translation.language.LanguageRepository;
 import com.github.translation.translate.Message;
 import com.github.translation.translate.Translate;
-import com.github.translation.translate.TranslatedMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,8 +36,8 @@ class TranslateController {
             return ResponseEntity.badRequest().body(ErrorResponse.builder().error("Target language does not exists").build());
         }
 
-        final Optional<TranslatedMessage> translatedMessage = translate.translateMessage(message);
-        return (translatedMessage.isPresent()) ? ResponseEntity.ok(translatedMessage.get()) : ResponseEntity.ok().build();
+        final Optional<Message> translatedMessage = translate.translateMessage(message);
+        return (translatedMessage.isPresent()) ? ResponseEntity.ok(createTranslationResponse(translatedMessage.get())) : ResponseEntity.ok().build();
     }
 
     @GetMapping("/languages")
@@ -49,6 +48,12 @@ class TranslateController {
     private boolean languageExists(String candidate) {
         final List<Language> languages = languageRepository.findLanguages();
         return languages.stream().anyMatch((language) -> language.getLanguage().toLowerCase().equals(candidate.toLowerCase()));
+    }
+
+    private TranslationResponse createTranslationResponse(Message translatedMessage) {
+        return TranslationResponse.builder().source(translatedMessage.getSource())
+                                            .text(translatedMessage.getText())
+                                            .build();
     }
 
 }
