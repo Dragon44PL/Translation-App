@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class TranslatedMessage {
+class TranslatedMessage {
+
     private String sourceLanguage;
     private String translatedText;
 }
