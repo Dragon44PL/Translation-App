@@ -10,13 +10,21 @@
     </parent>
 
 	<groupId>com.github.translation</groupId>
-	<artifactId>language</artifactId>
-	<version>1.0.0</version>
-	<name>language</name>
-	<description>Language Module</description>
+	<artifactId>google-translate</artifactId>
+	<version>${parent.version}</version>
+	<name>google-translate</name>
+	<description>Google Translate Module</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.translation</groupId>
+            <artifactId>translate</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
 
 </project>
