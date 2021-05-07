@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RestTemplateLanguageRepository implements LanguageRepository {
+public class RestTemplateLanguageRepository implements LanguageCacheRepository {
 
     private final RestTemplate restTemplate;
     private final String url;

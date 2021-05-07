@@ -1,6 +1,7 @@
 package com.github.translation.microservice;
 
 import com.github.translation.language.Language;
+import com.github.translation.language.LanguageCacheRepository;
 import com.github.translation.language.LanguageRepository;
 import com.github.translation.translate.Message;
 import com.github.translation.translate.Translate;
@@ -19,9 +20,9 @@ import java.util.Optional;
 class TranslateController {
 
     private final Translate translate;
-    private final LanguageRepository languageRepository;
+    private final LanguageCacheRepository languageRepository;
 
-    TranslateController(Translate translate, LanguageRepository languageRepository) {
+    TranslateController(Translate translate, LanguageCacheRepository languageRepository) {
         this.translate = translate;
         this.languageRepository = languageRepository;
     }
