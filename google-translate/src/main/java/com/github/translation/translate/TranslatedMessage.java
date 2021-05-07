@@ -6,7 +6,6 @@ import lombok.Getter;
 @Getter
 @Builder
 class TranslatedMessage {
-
     private String sourceLanguage;
     private String translatedText;
 }
