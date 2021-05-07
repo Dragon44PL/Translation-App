@@ -21,12 +21,16 @@ public class RestTemplateTranslate implements Translate {
     }
 
     private Optional<Message> createTranslateMessage(Message message, GoogleTranslateResponse googleTranslateResponse) {
-        if(googleTranslateResponse != null && googleTranslateResponse.getData() != null && googleTranslateResponse.getData().getTranslations() != null ) {
+        if(containsProperResponse(googleTranslateResponse)) {
             final Optional<TranslatedText> translatedText = googleTranslateResponse.getData().getTranslations().stream().findFirst();
             return translatedText.map(text -> processCreatingMessage(text, message));
         }
 
         return Optional.empty();
+    }
+
+    private boolean containsProperResponse(GoogleTranslateResponse googleTranslateResponse) {
+        return googleTranslateResponse != null && googleTranslateResponse.getData() != null && googleTranslateResponse.getData().getTranslations() != null;
     }
 
     private Message processCreatingMessage(TranslatedText translatedText, Message message) {
