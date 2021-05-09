@@ -46,7 +46,7 @@ class TranslateController {
 
     private boolean languageExists(String candidate) {
         final List<Language> languages = languageRepository.findLanguages();
-        return languages.stream().anyMatch((language) -> language.getLanguage().toLowerCase().equals(candidate.toLowerCase()));
+        return languages.stream().anyMatch((language) -> language.getName().toLowerCase().equals(candidate.toLowerCase()));
     }
 
     private TranslationResponse createTranslationResponse(Message translatedMessage) {
