@@ -17,8 +17,8 @@
     <description>Translation App to integrate with Google Cloud Translation API</description>
 
     <modules>
-        <module>language</module>
-        <module>translate</module>
+        <module>google-translate</module>
+        <module>translate-core</module>
         <module>microservice</module>
     </modules>
 

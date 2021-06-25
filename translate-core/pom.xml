@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>com.github.translation</groupId>
-	<artifactId>translate</artifactId>
+	<artifactId>translate-core</artifactId>
 	<version>${parent.version}</version>
-	<name>translate</name>
-	<description>Translate Module</description>
+	<name>translate-core</name>
+	<description>Translate Core Module</description>
 
     <properties>
         <java.version>11</java.version>
